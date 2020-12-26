@@ -31,6 +31,21 @@
             <button @click="dislike++">Dislike</button>
         </div>
 
+        <div class="row" style="margin-top:5px;">
+            <input type="text" v-model="newComment">
+            <button @click="commentHandler(newComment)">Send Comment</button>
+        </div>
+        
+        
+        <div class="row border border-success">
+            <p>Comments: </p>
+            <ul>
+                <li v-for="(comment, index) in comments" :key="index">
+                    {{comment}}
+            </ul>
+    
+        </div>
+
     </div>
 
     <script src="app.js"></script>
