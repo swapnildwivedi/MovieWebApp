@@ -31,13 +31,20 @@
             <button @click="dislike++">Dislike</button>
         </div>
 
-        <div class="row" style="margin-top:5px;">
+        <!-- comment area-->
+
+        <div  class="row" style="margin-top:5px;">
             <input type="text" v-model="newComment">
             <button @click="commentHandler(newComment)">Send Comment</button>
+
+            <button @click="commentToggle()">
+                <span v-if = "!showComments">Show Comments</span>
+                <span v-if = "showComments">Hide Comments</span>
+            </button>
         </div>
         
         
-        <div class="row border border-success">
+        <div v-if = "showComments" class="row border border-success">
             <p>Comments: </p>
             <ul>
                 <li v-for="(comment, index) in comments" :key="index">
